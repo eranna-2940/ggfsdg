@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unkpg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+    <title>form</title>
+</head>
+
+<style>
+  body{
+    background-color: #1d2126;
+    color: white;
+  }
+.wrapper{
+    width: 400px;
+    max-width: 90%;
+    margin: 0 auto;
+    margin-top: 12rem;
+    
+}
+   
+.wrapper label{
+    display: block;
+    margin: 0.5rem ;
+}
+.wrapper label input{
+    font-size: 18px;
+    padding: 0.5em;
+}
+</style>
+
+<body>
+    <div class="wrapper">
+        <h1>Form</h1>
+      
+                <input type="text" maxlength="8" id="num" onkeyup="numberonly()">
+                <input type="number" maxlength="8" >
+                <input type="text" placeholder="enter a number" size="10" onkeypress="restrict()">
+
+                <input type="text" maxlength="8" oninput="this.value =this.value.replace(/[^0-9]/g, '')"
+
+                <button>submit</button>
+    </div>
+    <script>
+     // Method one 
+     // it is used to when user want to get max limit of enter 8 digits for input fields while maintain type=number this method works for type= number
+        // document.querySelectorAll('input[type="number"]').forEach(input =>{
+        //     input.oninput = () =>{
+        //          if(input.value.length > input.maxLength) input.value= input.value.substring(0,input.maxLength)
+        //     }
+        // })
+
+     //Method 2
+     
+     /// when user want to display only numbers not enter alphabits we use this when to maitain type= text we use functionality and get limit of 8 digits
+        // function numberonly(){
+        //     const num = /[^0-9]/gi;
+        //     const number = document.getElementById('num');
+        //       number.value = number.value.replace(num,'')
+
+        // }
+// method 3
+
+function restrict(e){
+    let num = e.which || e.keycode;
+
+    if((num >= 48 && num <= 57)){
+        return true;
+    }else{
+        return false
+    }
+}
+    
+    </script>
+</body>
+</html>
