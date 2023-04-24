@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1 {
+        color: green;
+    }
+    .container {
+        padding: 15px;
+        width: 420px;
+        height: 180px;
+        justify-content: center;
+        margin-left: 450px;
+        margin-top: 140px;
+        background-color: white;
+        box-shadow: 4px 4px 4px 4px black;
+        border-radius: 8px;
+    }
+     
+    label,
+    input {
+        margin-bottom: 10px;
+        
+    }
+     
+    button {
+        float: right;
+        margin-right: 10px;
+        background-color: green;
+    }
+</style>
+<body>
+    
+        <div class="container">
+            <h1>form</h1>
+            <div>
+                <label>Phone no:</label>
+                <input type="text"
+                       id="number" size="40" maxlength="8"><br/>
+                <span id="error"></span>
+            </div>
+            <button type="submit"
+                  onclick="errorMessage()"  >
+                Submit
+            </button>
+        </div>
+        <script>
+            function errorMessage() {
+                var error = document.getElementById("error")
+                let num = document.getElementById('number').value;
+                const pattern =/^[0-9]+$/;
+                if (num === '')
+                {  
+                  error.innerHTML = "Please enter values"
+                    error.style.color = "red"
+                 }
+                 else if(!num.match(pattern)){
+                    error.innerHTML = 'please enter numerical values'
+                    error.style.color='red'
+                }else if(num.length<8){
+                     error.innerHTML = "please enter 8 digits only"
+                 error.style.color= "red"
+                 }
+                else{
+                    error.innerHTML= 'data ok'
+                    error.style.color= 'green'
+                }
+            }
+        </script>
+</body>
+</html>
