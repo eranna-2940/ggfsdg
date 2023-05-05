@@ -1,9 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import './App.css'
 import pic from './images/logo.png';
+import { useState } from 'react';
+import Modal from './modal';
 
 function Welcome() {
- 
+   const [modal,setModal] = useState(false);
+   const toggleModal =()=>{
+      setModal(!modal)
+   }
   const history = useNavigate()
   const handleclick=()=>{
         history('/License')
@@ -46,7 +51,7 @@ function Welcome() {
           <div className='datainputs'>
           <div>    
                      <label className="datalabel">
-                     <input type="radio" value="install" defaultChecked name="option" />
+                     <input type="radio" value="install"  defaultChecked name="option" />
                     <span className="dataspan">Fresh Installation</span>
                     </label></div>
 
@@ -62,9 +67,13 @@ function Welcome() {
             <p className='fpara'>Click  <b>Next</b>  to continue</p>
             <div className='main-button'>
            <button className='button-data btn btn-success' onClick={handleclick}>Next</button>
-      
+           
           <div>
-          
+             <button onClick={toggleModal}>get</button>
+             
+             {modal && ( <Modal close={toggleModal}/> )}
+              
+
           </div>
             </div>
             </div>
