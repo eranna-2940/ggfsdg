@@ -119,3 +119,99 @@ function App() {
 }
 
 export default App
+function App() {
+  const [User, setUser] = useState([
+    {
+      Name:'',
+      Pass:'',
+      Email:'',
+    }
+  ]);
+
+ 
+  const [storedUser,setstoredUser]=useState([])
+
+  
+  const handle = () => {
+
+     localStorage.setItem(JSON.stringfy(...User))
+    
+     setstoredUser(...User);
+
+  };
+  const remove = () => {
+     localStorage.removeItem();
+
+  };
+  return (
+    <div className="App">
+         <h1>Name of the user:</h1>
+         <input
+            placeholder="Name"
+            name='Name'
+            value={User.Name}
+            onChange={(e) => setUser({...User,[e.target.name]:[e.target.value]})}
+         />
+         <h1>Password of the user:</h1>
+         <input
+            type="password"
+            name="Pass"
+            placeholder="Password"
+            value={User.Pass}
+            onChange={(e) => setUser({...User,[e.target.name]:[e.target.value]})}
+         />
+           <h1>Email of the user:</h1>
+          <input
+            type="mail"
+            name="Email"
+            placeholder="Email"
+            value={User.Email}
+            onChange={(e) => setUser({...User,[e.target.name]:[e.target.value]})}
+         />
+         <div>
+            <button onClick={handle}>Done</button>
+         </div>
+         {storedUser.Name && (
+            <div>
+               Name: <p>{localStorage.getItem('Name')}</p>
+            </div>
+         )}
+         {storedUser.Pass && (
+            <div>
+               Password: <p>{localStorage.getItem('Pass')}</p>
+            </div>
+         )}
+          {storedUser.Email && (
+            <div>
+               Password: <p>{localStorage.getItem('Email')}</p>
+            </div>
+         )}
+         <div>
+            <button onClick={remove}>Remove</button>
+         </div>
+      </div>
+   ); 
+}
+
+export default App;
+I did localstorage.setItem() in one component and i want to do localstorage.getItem() in second component
+
+
+import React from 'react';
+import PresentationalComponent from './PresentationalComponent'
+
+const containerComponent = () => {
+    localStorage.setItem("hello", "hi"); // localStorage only accepts string values
+
+    return <PresentationalComponent />
+}
+export default containerComponent;
+PresentationalComponent.js
+
+import React from 'react';
+
+const PresentationalComponent = () => {
+    return <h1>{`The hello localStorage key has a value of ${localStorage.getItem("hello")}`}</h1>
+}
+
+export default PresentationalComponent;
