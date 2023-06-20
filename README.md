@@ -68,3 +68,19 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+let  numberOfVideos = e.target.files.length;
+    for (let i = 0; i < numberOfVideos; i++) {
+        let file = e.target.files[i];
+        let blobURL = URL.createObjectURL(file);
+        let video = document.createElement('video');
+        video.src = blobURL;
+        video.style.width="300px"
+        video.style.height="250px"
+        video.setAttribute("controls", "")
+        const videos = document.getElementById("videos");
+        videos.appendChild(video);
+    }
+
+
+
