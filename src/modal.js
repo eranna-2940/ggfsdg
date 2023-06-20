@@ -19,7 +19,7 @@ const Modal =({close})=>{
            <button className="closetick" onClick={close}>x</button>
                   <h6>Warning</h6>
                   <hr/>
-                  <p className="mp">The following features and add-ons are not supported by OrangeHRM Starter 
+                  <p className="mp">The following features and add-ons are not supported by InfoHRM Starter 
                   version 5.3. You may continue to upgrade your system to version 5.3, but please note that any data used in these features will be inaccessible.</p>
                <div className="tablemodal">
                    <div>
@@ -44,7 +44,7 @@ const Modal =({close})=>{
                <div className="checkbox">
                 <label className="mp">
                    <input type="checkbox" onClick={enabled} ></input>
-                   <p > I want to continue upgrading the OrangeHRM system to version 5.3 and I am aware that by doing so, any gathered data in incomplete features/add-ons will be inaccessible.</p>
+                   <p > I want to continue upgrading the InfoHRM system to version 5.3 and I am aware that by doing so, any gathered data in incomplete features/add-ons will be inaccessible.</p>
                 </label>
 
 

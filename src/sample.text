@@ -47,6 +47,7 @@ example of localStorage
 import { useEffect, useState } from 'react'
 
 function App() {
+
   const [User, setUser] = useState({
     Name: '',
     Pass: '',
@@ -119,6 +120,8 @@ function App() {
 }
 
 export default App
+
+
 function App() {
   const [User, setUser] = useState([
     {
@@ -215,3 +218,74 @@ const PresentationalComponent = () => {
 }
 
 export default PresentationalComponent;
+
+
+how to use to store data in localStorage when using use form hook 
+Method : 2
+<input
+  placeholder="name"
+  {...register("name", {
+    onChange: handleChange,
+    name: "name",
+    value: values.name
+  })}
+/>
+
+when combine two onchange and useform hook in get validation required;
+Method : 1
+const fieldRegister =  {...register("name", { required: "Required" })} 
+  const origOnChange = fieldRegister.onChange
+  fieldRegister.onChange = (e) => {
+      const res = origOnChange(e)
+      const value = e.target.value
+      setName(value);
+      // do something with value
+      return res
+  }
+  const fieldRegister2 =   {...register("dbname", { required: "Required" })}
+  const origOnChange2 = fieldRegister2.onChange
+  fieldRegister2.onChange= (e) => {
+      const res= origOnChange2(e)
+      const value = e.target.value
+      setDdname(value);
+      // do something with value
+      return res
+  }
+  const result =  {...register("dbuname", { required: "Required" })}
+  Method : 3
+  const result =  {...register("dbuname", { required: "Required" })}
+  {...result}
+                              onChange={(e) => {
+                                result.onChange(e);
+                                handlechange(e)
+                           }}
+
+system variables
+path of softwares;
+C:\Program Files\Maven\apache-maven-4.0.0-alpha-5-bin\apache-maven-4.0.0-alpha-5\bin
+C:\Program Files\Java\jdk-19\bin
+C:\Program Files\Java\jdk-19
+C:\Program Files\MySQL\MySQL Server 5.7\bin
+C:\Users\User1\AppData\Local\Programs\Python\Python311
+C:\Users\User1\AppData\Local\Programs\Python\Python311\Scripts
+C:\Program Files\Spring-Boot\spring-3.0.4\bin
+
+Java_home
+C:\Program Files\Java\jdk-19
+maven_home
+C:\Program Files\Maven\apache-maven-4.0.0-alpha-5-bin\apache-maven-4.0.0-alpha-5
+
+use variables
+C:\Program Files\MySQL\MySQL Shell 8.0\bin\
+C:\Program Files\Java\jdk-19\bin
+
+
+
+	Props are read-only.	State changes can be asynchronous.
+2.	Props are immutable.	State is mutable.
+3.	Props allow you to pass data from one component to other components as an argument.	State holds information about the components.
+4.	Props can be accessed by the child component.	State cannot be accessed by child components.
+5.	Props are used to communicate between components.	States can be used for rendering dynamic changes with the component.
+6.	Stateless component can have Props.	Stateless components cannot have State.
+7.	Props make components reusable.	State cannot make components reusable.
+8.	Props are external and controlled by whatever renders the component.	The State is internal and controlled by the React Component itself.

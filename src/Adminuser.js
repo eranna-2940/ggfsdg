@@ -1,5 +1,5 @@
-import React from "react";
-import pic from './images/logo.png';
+import React, { useState } from "react";
+import pic from './images/image002.gif';
 import './App.css';
 import { useNavigate } from "react-router-dom";
 import {useForm} from "react-hook-form";
@@ -10,11 +10,24 @@ const Adminuser=()=>{
    const handlclick=()=>{
         history('/Instance');
    }
+   const [data,setData] = useState({
+       admin:"",
+       fname:"",
+       lname:"",
+       email:"",
+       password:"",
+       cpassword:""
+   })
+
+const handleChange=(e)=>{
+    setData({...data, [e.target.name]: e.target.value})
+}
 
 const onSubmit=()=>{
     const password1 = document.getElementById("password").value;   
     const password2 = document.getElementById("cpassword").value;
     if(password1===password2){
+        localStorage.setItem("user",JSON.stringify(data))
         history('/Confirmation')
     }
    
@@ -45,9 +58,9 @@ const onSubmit=()=>{
               <span className="remlist count">9</span> 
               </div>
               <div className='footer'>
-                     <p className='fhrm1'>OrangeHRM OS 5.3</p>
+                     <p className='fhrm1'>InfoHRM OS 5.3</p>
                      <p className='fhrm2'>&copy; 2005 - 2023
-                      <a href='https://www.orangehrm.com/'>OrangeHRM, Inc</a>
+                      <a href='https://www.orangehrm.com/'>InfoHRM, Inc</a>
                       All  rights reserved.
                      </p>
                      <br/>
@@ -56,14 +69,14 @@ const onSubmit=()=>{
               <div className='midd-content'>
           <div>
                 <div className='header-img'>
-                   <img src={pic} alt='' width='280' />
+                   <img src={pic} alt=''  />
                </div>
             <div className='content'>
                <h5 className='hrmorange'>Admin User Creation</h5>
-              <p className='cpara1'>Select the name, email address, username and password to create the admin user for your OrangeHRM Instance</p>
+              <p className='cpara1'>Select the name, email address, username and password to create the admin user for you InfoHRM Instance</p>
               <br/>
              
-                        <div className="datainputs">
+              <div className="datainputs">
                     
                <form onSubmit={handleSubmit(onSubmit)}>
     <div className="datamain">
@@ -72,7 +85,11 @@ const onSubmit=()=>{
             <div className="left">
                 <label>Employee Name</label>
                 <input  type="text" name="fname" className="host"  placeholder="FirstName" 
-                {...register("fname",{required:'Required'})} 
+                {...register("fname",{required:'Required'},{
+                    onChange:handleChange,
+                    name:"fname",
+                    value:data.fname
+                })} 
                 style={{ border: errors.fname?.message ? '1px solid red' : '' }}
                 
                 /> 
@@ -84,7 +101,11 @@ const onSubmit=()=>{
             <div className="left">
             <label>&nbsp;</label>
             <input  type="text" name="lname" className="host"  placeholder="LastName" 
-            {...register("lname",{required:'Required'})} 
+            {...register("lname",{required:'Required'},{
+                onChange:handleChange,
+                name:"lname",
+                value:data.lname
+            })} 
             style={{ border: errors.lname?.message ? '1px solid red' : '' }}
             /> 
              <div>
@@ -97,7 +118,11 @@ const onSubmit=()=>{
             <div className="left">
             <label>Email*</label>
             <input  type="email" name="email" className=" host host1" 
-             {...register("email",{required:'Required'})} 
+             {...register("email",{required:'Required'},{
+                onChange:handleChange,
+                name:"email",
+                value:data.email
+            })} 
              style={{ border: errors.email?.message ? '1px solid red' : '' }}
             
             /> 
@@ -113,11 +138,16 @@ const onSubmit=()=>{
             <div className="datalist">
                 
                 <div className="left">
-                <label>Admin Username*</label><input type="text" name="name" className="host" 
-                 {...register("admin",{required:'Required'})} 
+                <label>Admin Username*</label><input className="host" 
+                 {...register("admin", {
+                    onChange: handleChange,
+                    name: "admin",
+                    value: data.name
+                  })}
                  style={{ border: errors.admin?.message ? '1px solid red' : '' }}
                 
                 />
+
                    <div>
                     {errors.admin && (<p className="text-danger">{errors.admin.message}</p>)}
                     </div>
@@ -128,7 +158,11 @@ const onSubmit=()=>{
                 
                 <div className="left">
                 <label>Password*</label><input type="password"  id="password" className="host" 
-                 {...register("password",{required:'Required'})} 
+                 {...register("password",{required:'Required'},{
+                    onChange:handleChange,
+                    name:"password",
+                    value:data.password
+                })} 
                  style={{ border: errors.password?.message ? '1px solid red' : '' }}
                 
                 
@@ -139,7 +173,11 @@ const onSubmit=()=>{
                 </div>
                 <div className="left">
                 <label>Confirm Password*</label><input type="password" id="cpassword"  className="host" 
-                 {...register("cpassword",{required:'Required'})} 
+                 {...register("cpassword",{required:'Required'},{
+                    onChange:handleChange,
+                    name:"cpassword",
+                    value:data.cpassword
+                })} 
                  style={{ border: errors.cpassword?.message ? '1px solid red' : '' }}
                 
                 />
@@ -150,10 +188,10 @@ const onSubmit=()=>{
            </div>
            <div className="left">
             <label className="datalabel3 label4">
-            <input type="checkbox" defaultChecked/><span className="dataspan3">Register your system with OrangeHRM. By registering, You will be eligible for free support via emails, receive security<br/> alerts and news letters from OrangeHRM.</span>
+            <input type="checkbox" defaultChecked/><span className="dataspan3">Register your system with InfoHRM. By registering, You will be eligible for free support via emails, receive security<br/> alerts and news letters from InfoHRM.</span>
             </label>
               <div className="circledata">
-                  <i class="bi bi-info-circle"></i><p>Users who seek access to their data, or who seek to correct, amend, or delete the given information should direct their<br/> requests to data@orangehrm.com</p>
+                  <i class="bi bi-info-circle"></i><p>Users who seek access to their data, or who seek to correct, amend, or delete the given information should direct their<br/> requests to data@Infohrm.com</p>
               </div>
            </div>
 
@@ -163,15 +201,10 @@ const onSubmit=()=>{
                 <button className='button-data' >Next</button>
                     </div>
                     
-             </form>
-                        </div>
-                  
-
-          </div>
-        
-          
-          
-            </div>
+                 </form>
+                </div>
+              </div>
+             </div>
             </div>
           </div>
           </div>

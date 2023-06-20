@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import './App.css'
-import pic from './images/logo.png';
+import pic from './images/image002.gif';
 import version from './version.json'
 
 
@@ -34,9 +34,9 @@ function Version() {
               <span className="remlist count">6</span> 
               </div>
               <div className='footer'>
-                     <p className='fhrm1'>OrangeHRM OS 5.3</p>
+                     <p className='fhrm1'>InfoHRM OS 5.3</p>
                      <p className='fhrm2'>&copy; 2005 - 2023
-                      <a href='https://www.orangehrm.com/'>OrangeHRM, Inc</a>
+                      <a href='https://www.orangehrm.com/'>InfoHRM, Inc</a>
                       All  rights reserved.
                      </p>
                      <br/>
@@ -45,7 +45,7 @@ function Version() {
               </div>
           <div className='midd-content'>
                 <div className='header-img'>
-                   <img src={pic} alt='' width='280' />
+                   <img src={pic} alt='' />
                </div>
             <div className='content'>
                <h5 className='hrmorange'>Current Version Details</h5>

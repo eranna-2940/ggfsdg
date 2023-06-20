@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import './App.css'
-import pic from './images/logo.png';
+import pic from './images/image002.gif';
 
 
 
@@ -40,9 +40,9 @@ function Systemcheck() {
               <span className="remlist count">9</span> 
               </div>
               <div className='footer'>
-                     <p className='fhrm1'>OrangeHRM OS 5.3</p>
+                     <p className='fhrm1'>InfoHRM OS 5.3</p>
                      <p className='fhrm2'>&copy; 2005 - 2023
-                      <a href='https://www.orangehrm.com/'>OrangeHRM, Inc</a>
+                      <a href='https://www.orangehrm.com/'>InfoHRM, Inc</a>
                       All  rights reserved.
                      </p>
                      <br/>
@@ -50,11 +50,11 @@ function Systemcheck() {
               </div>
           <div className='midd-content'>
                 <div className='header-img'>
-                   <img src={pic} alt='' width='280' />
+                   <img src={pic} alt=''  />
                </div>
             <div className='content'>
                <h5 className='hrmorange'>System Check </h5>
-              <p className='cpara1'>In order for your OrangeHRM installation to function properly, please ensure that all of the system check items listed below are green. If any are red, please take the necessary steps to fix them.</p>
+              <p className='cpara1'>In order for your InfoHRM installation to function properly, please ensure that all of the system check items listed below are green. If any are red, please take the necessary steps to fix them.</p>
               <br/>
              <div className='systemcheck'>
               <h5>Environment</h5>

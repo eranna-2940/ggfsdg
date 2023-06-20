@@ -1,5 +1,5 @@
 import React from "react";
-import pic from './images/logo.png';
+import pic from './images/image002.gif';
 import './App.css';
 import { useNavigate } from "react-router-dom";
 import {useForm} from "react-hook-form";
@@ -34,9 +34,9 @@ const Databaseinf =()=>{
               <span className="remlist count">6</span> 
               </div>
               <div className='footer'>
-                     <p className='fhrm1'>OrangeHRM OS 5.3</p>
+                     <p className='fhrm1'>InfoHRM OS 5.3</p>
                      <p className='fhrm2'>&copy; 2005 - 2023
-                      <a href='https://www.orangehrm.com/'>OrangeHRM, Inc</a>
+                      <a href='https://www.orangehrm.com/'>InfoHRM, Inc</a>
                       All  rights reserved.
                      </p>
                      <br/>
@@ -45,7 +45,7 @@ const Databaseinf =()=>{
               <div className='midd-content'>
           <div>
                 <div className='header-img'>
-                   <img src={pic} alt='' width='280' />
+                   <img src={pic} alt='' />
                </div>
             <div className='content'>
                <h5 className='hrmorange'>Database Information</h5><br/>
@@ -55,7 +55,7 @@ const Databaseinf =()=>{
             <div className="content2">
                 <p className="content2p">IMPORTANT</p>
                 <div className="content3">
-                    <p className="content3p">Make sure it's a copy of the database of your current OrangeHRM installation and not the original database. It's highly discouraged to use the original database for upgrading since it won't be recoverable if an error occurred during the upgrade.</p>
+                    <p className="content3p">Make sure it's a copy of the database of your current InfoHRM installation and not the original database. It's highly discouraged to use the original database for upgrading since it won't be recoverable if an error occurred during the upgrade.</p>
                 </div>
             </div>
             <br/>

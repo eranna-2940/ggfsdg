@@ -109,6 +109,10 @@
     text-align: end;
     padding: 12px;
 }
+.header-img img{
+    width: 190px;
+    height: 80px;
+}
 
 .content{
     padding-left: 2rem;

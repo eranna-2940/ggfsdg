@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import pic from "./images/logo.png";
+import pic from './images/image002.gif';
 import "./App.css";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -35,8 +35,8 @@ const Configuration = () => {
   const [name,setName] = useState("");
   const [hostport,setHostport] = useState(3306);
   const [dbname,setDdname]=useState("");
-  const [dbuname,setDduname]=useState("");
-  const [password,setPassword]=useState("");
+  const [setDduname]=useState("");
+  const [setPassword]=useState("");
   const [setDd1name]=useState("");
   const [setPassword2]=useState("");
   const history = useNavigate();
@@ -47,7 +47,7 @@ const Configuration = () => {
       localStorage.setItem("name", name);
       localStorage.setItem("hostport", hostport);
       localStorage.setItem("dbname", dbname);
-    history('/Systemcheck')
+      history('/Systemcheck')
     
   }
   const handlechange=(e)=>{
@@ -82,10 +82,10 @@ const Configuration = () => {
           <span className="remlist count">9</span>
           </div>
           <div className="footer">
-            <p className="fhrm1">OrangeHRM OS 5.3</p>
+            <p className="fhrm1">InfoHRM OS 5.3</p>
             <p className="fhrm2">
               &copy; 2005 - 2023
-              <a href="##">OrangeHRM, Inc</a>
+              <a href="##">InfoHRM, Inc</a>
               All rights reserved.
             </p>
             <br />
@@ -94,7 +94,7 @@ const Configuration = () => {
         <div className="midd-content">
           <div>
             <div className="header-img">
-              <img src={pic} alt="" width="280" />
+              <img src={pic} alt=""  />
             </div>
             <div className="content">
               <h5 className="hrmorange">Database Configuration</h5>
@@ -148,7 +148,7 @@ const Configuration = () => {
                           }}
                           
                         />
-                        <div>
+                        <div className="">
                           {errors.name && (
                             <p className="text-danger">{errors.name.message}</p>
                           )}
@@ -199,7 +199,7 @@ const Configuration = () => {
                                 onChange={()=>setMessage(false)}
                               />
                               <span className="dataspan2">
-                                Use the same Database User for OrangeHRM
+                                Use the same Database User for InfoHRM
                               </span>
                             </label>
                           </>
@@ -246,7 +246,7 @@ const Configuration = () => {
                         </>
                       )}
                       <div className="left">
-                        <label>OrangeHRM Database Username<i class="bi bi-info-circle-fill"></i></label>
+                        <label>InfoHRM Database Username<i class="bi bi-info-circle-fill"></i></label>
                         <input
                           type="text"
                           name="name"
@@ -254,11 +254,12 @@ const Configuration = () => {
                          className="host"
                          disabled={accept}
                           {...register("db1name", { required: "Required" },{onChange:(e)=>setDd1name(e.target.value)})}
-                          style={{
-                            border: errors.db1name?.message
-                              ? "1px solid red"
-                              : "",
-                          }}
+                          // style={{
+                          //   border: errors.db1name?.message
+                          //     ? "1px solid red"
+                          //     : "",
+                          // }}
+                         
                         />
                      {message && <div>
                           {errors.db1name && (
@@ -270,7 +271,7 @@ const Configuration = () => {
                         </div>}
                       </div>
                       <div className="left">
-                        <label>OrangeHRM Database User Password</label>
+                        <label>InfoHRM Database User Password</label>
                         <input type="text" name="name" className="host"  disabled={accept}
                         onChange={(e)=>setPassword2(e.target.value)}
                         

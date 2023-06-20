@@ -1,5 +1,5 @@
 import React from "react";
-import pic from './images/logo.png';
+import pic from './images/image002.gif';
 import './App.css';
 import { useNavigate } from "react-router-dom";
 
@@ -29,9 +29,9 @@ const handleclick=()=>{
               <span className="navlist count">6</span> 
               </div>
               <div className='footer'>
-                     <p className='fhrm1'>OrangeHRM OS 5.3</p>
+                     <p className='fhrm1'>InfoHRM OS 5.3</p>
                      <p className='fhrm2'>&copy; 2005 - 2023
-                      <a href='https://www.orangehrm.com/'>OrangeHRM, Inc</a>
+                      <a href='https://www.orangehrm.com/'>InfoHRM, Inc</a>
                       All  rights reserved.
                      </p>
                      <br/>
@@ -40,7 +40,7 @@ const handleclick=()=>{
               <div className='midd-content'>
           <div>
                 <div className='header-img'>
-                   <img src={pic} alt='' width='280' />
+                   <img src={pic} alt='' />
                </div>
             <div className='content'>
                <h5 className='hrmorange'>Upgrade Complete</h5> <br/>
